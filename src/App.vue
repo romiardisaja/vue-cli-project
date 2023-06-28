@@ -1,7 +1,6 @@
 <template>
-    <h2>Welcome {{ nama }}</h2>
-    <!-- <button v-on:click="changeName">Change Name</button> -->
-    <button @click="changeName">Change Name</button>
+    <!-- <a v-bind:href="url">GO TO GOOGLE</a> -->
+    <a :href="url">GO TO GOOGLE</a>
 </template>
 
 <script>
@@ -10,12 +9,7 @@ export default {
   name: 'App',
   data(){
     return{
-      nama: 'Romi'
-    }
-  },
-  methods: {
-    changeName(){
-      this.nama = 'Rassya'
+      url: 'https://google.com'
     }
   },
 }
