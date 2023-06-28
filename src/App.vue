@@ -1,6 +1,6 @@
 <template>
-    <!-- <a v-bind:href="url">GO TO GOOGLE</a> -->
-    <a :href="url">GO TO GOOGLE</a>
+    <input type="text" v-model="nama">
+    {{ nama }}
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
   name: 'App',
   data(){
     return{
-      url: 'https://google.com'
+      nama: 'Rassya'
     }
   },
 }
