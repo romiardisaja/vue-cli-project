@@ -1,5 +1,5 @@
 <template>
-    <Header :judul="isiJudul" />
+    <Header @headerChangeJudul="changeJudul" :judul="isiJudul" />
 </template>
 
 <script>
@@ -14,7 +14,12 @@ export default {
     return {
       isiJudul: "Ini adalah judul dari data"
     }
-  }
+  },
+  methods: {
+    changeJudul(judulBaru){
+      this.isiJudul = judulBaru;
+    }
+  },
 }
 </script>
 
