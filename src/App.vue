@@ -1,14 +1,11 @@
 <template>
-  <div v-if="products.length">
-    <ul>
-      <li v-for="item in products" :key="item.id">
-        {{ item.title }} - {{ item.price }}
-      </li>
-    </ul>
-  </div>
-  <div v-else>
-    <p>No Data Found!</p>
-  </div>
+  <input type="text" v-model="cari" placeholder="Cari Product">
+  <ul>
+    <li v-for="item in cariData" :key="item.id">
+      {{ item.title }} - {{ item.price }}
+    </li>
+  </ul>
+  
 </template>
 
 <script>
@@ -17,12 +14,9 @@ export default {
   name: 'App',
   data(){
     return{
-      nama: 'Rassya',
+      cari: '',
       products: []
     }
-  },
-  beforeCreate(){
-    console.log('beforeCreate');
   },
   created(){
     console.log('created');
@@ -34,22 +28,16 @@ export default {
       {id: 5, title: "Product 5", price: 5000},
     ]
   },
-  beforeMount(){
-    console.log('beforeMount');
-  },
-  mounted(){
-    console.log('mounted');
+  computed: {
+    cariData(){
+      return this.products.filter(item => {
+        return item.title.match(this.cari);
+      });
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
